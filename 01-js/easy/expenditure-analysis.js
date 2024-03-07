@@ -13,8 +13,25 @@
   Output - [{ category: 'Food', totalSpent: 10 }] // Can have multiple categories, only one example is mentioned here
 */
 
+const isAnagram = require("./anagram");
+
 function calculateTotalSpentByCategory(transactions) {
-  return [];
-}
+  const totalSpendByCategory = [];
+  for(let i=0;i<transactions.length;i++) {
+    let transaction = transactions[i];
+    let category = transaction.category;
+        if(totalSpendByCategory[category]){
+          totalSpendByCategory[category] += transaction.price;
+
+        }else {
+          totalSpendByCategory[category] = transaction.price;
+
+        }
+    }
+
+  }
+
+  return totalSpendByCategory;
+
 
 module.exports = calculateTotalSpentByCategory;
